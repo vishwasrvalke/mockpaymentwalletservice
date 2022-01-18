@@ -15,4 +15,6 @@ https://documenter.getpostman.com/view/15932259/UVXkoasV
 
 // apis hosted on heroku at endpoint  https://dashboard.heroku.com/apps/mywalletservice/
 
-app: https://mywalletservice.herokuapp.com/ ~routepaths~
+app: https://mywalletservice.herokuapp.com/ routepaths from docs
+
+DB - MONGO DB
