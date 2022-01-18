@@ -30,4 +30,4 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
 });
 
 //SERVER START
-app.listen(3000);
+app.listen(process.env.PORT || 5000);
