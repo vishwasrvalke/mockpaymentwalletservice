@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "fdf17925-03ca-4b5a-8b9e-001f65f4bc35",
+		"name": "WALLET SERVICE COLLECTION",
+		"description": "WALLET SERVICES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SETUP WALLET",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"vishwas\",\r\n    \"balance\": 15000.56\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{authUrl}}/setup",
+					"protocol": "http",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"setup"
+					]
+				},
+				"description": "Initializes Wallet with name and balance amount"
+			},
+			"response": []
+		},
+		{
+			"name": "TRANSACTION",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 1000.56648,\r\n    \"description\": \"Recharge\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{authUrl}}/transact/{{walletID}}",
+					"protocol": "http",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"transact",
+						"{{walletID}}"
+					]
+				},
+				"description": "*   MAKES A TRANSACTION\n*   CREATES A TRANSACTION IN THE WALLET\n*   UPDATES THE BALANCE AMOUNT BASED ON POSITIVE OR NEGATIVE AMOUNT IN THE PAYLOAD BODY (CREDIT +VE INTEGER , DEBIT -VE INTEGER)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET LIST OF TRANSACTIONS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http:/{{authUrl}}/transactions?walletId={{_id}}&skip={{skip}}&limit={{limit}}",
+					"host": [
+						"http"
+					],
+					"port": "",
+					"path": [
+						"{{authUrl}}",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "walletId",
+							"value": "{{_id}}"
+						},
+						{
+							"key": "skip",
+							"value": "{{skip}}"
+						},
+						{
+							"key": "limit",
+							"value": "{{limit}}"
+						}
+					]
+				},
+				"description": "FETCHES LIST OF TRANSACTIONS AND PAGINATES AND LIMITS BASED ON QUERY PARAMS"
+			},
+			"response": []
+		},
+		{
+			"name": "GET WALLET BY WALLET ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{authUrl}}/wallet/{{walletID}}",
+					"protocol": "http",
+					"host": [
+						"{{authUrl}}"
+					],
+					"path": [
+						"wallet",
+						"{{walletID}}"
+					]
+				},
+				"description": "FETCHES USER WALLET BASED ON WALLET ID"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "walletID",
+			"value": "61e43ad581b765e26a1ebc40"
+		},
+		{
+			"key": "authUrl",
+			"value": "authUrl"
+		},
+		{
+			"key": "limit",
+			"value": "10"
+		},
+		{
+			"key": "skip",
+			"value": "2"
+		},
+		{
+			"key": "_id",
+			"value": "61e5e9f7796d194e133e8759"
+		}
+	]
+}
